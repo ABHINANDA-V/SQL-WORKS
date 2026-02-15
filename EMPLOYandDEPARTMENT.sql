@@ -1,0 +1,40 @@
+create database work;
+use work;
+create table employee(EMP_ID int primary key auto_increment,EMPLOY_NAME varchar(50),DEPARTMENT_NAME varchar(50));
+create table department(DEP_ID int primary key auto_increment,DEPARTMENT_NAME varchar(50),EMP_ID int,foreign key(EMP_ID)references employee(EMP_ID));
+describe department;
+show tables;
+insert into employee(EMP_ID,EMPLOY_NAME,DEPARTMENT_NAME)values(1,"ANJANA","COMPUTER");
+insert into employee(EMPLOY_NAME,DEPARTMENT_NAME)values("AARYA","CHEMICAL");
+insert into employee(EMPLOY_NAME,DEPARTMENT_NAME)values("AMMU","COMPUTER");
+insert into employee(EMPLOY_NAME,DEPARTMENT_NAME)values("ANU","ELECTRICAL");
+insert into employee(EMPLOY_NAME,DEPARTMENT_NAME)values("ANARGHA","CHEMICAL");
+insert into employee(EMPLOY_NAME,DEPARTMENT_NAME)values("ATHIRA","TOOL AND DIE");
+insert into employee(EMPLOY_NAME,DEPARTMENT_NAME)values("AISWARYA","MECHANICAL");
+insert into employee(EMPLOY_NAME,DEPARTMENT_NAME)values("AMRUTHA","MECHANICAL");
+insert into employee(EMPLOY_NAME,DEPARTMENT_NAME)values("AJU","MECHANICAL");
+
+select * FROM employee;
+insert into department(DEP_ID,DEPARTMENT_NAME,EMP_ID)values(1,"COMPUTER",1);
+insert into department(DEPARTMENT_NAME,EMP_ID)values("CHEMICAL",5);
+insert into department(DEPARTMENT_NAME,EMP_ID)values("TOOL AND DIE",6);
+insert into department(DEPARTMENT_NAME,EMP_ID)values("MECHANICAL",7);
+insert into department(DEPARTMENT_NAME,EMP_ID)values("ELECTRICAL",4);
+select * FROM department;
+select EMPLOY_NAME,DEPARTMENT_NAME FROM employee;
+select EMPLOY_NAME,DEPARTMENT_NAME FROM employee WHERE DEPARTMENT_NAME="COMPUTER";
+alter table employee add age int;
+update employee set age=24 where EMP_ID=1;
+update employee set age=28 where EMP_ID=2;
+update employee set age=25 where EMP_ID=3;
+update employee set age=24 where EMP_ID=4;
+update employee set age=22 where EMP_ID=5;
+update employee set age=24 where EMP_ID=6;
+update employee set age=29 where EMP_ID=7;
+select * from employee order by age desc;
+select * from employee order by age asc;
+select distinct DEPARTMENT_NAME from employee;
+select * from employee;
+select DEPARTMENT_NAME,count(*) FROM employee group by DEPARTMENT_NAME;
+
+
